@@ -7,7 +7,7 @@
     "node": "16"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
   },
   "keywords": [
     "vue2",
@@ -16,6 +16,8 @@
   "author": "Anton Bezushko",
   "license": "ISC",
   "devDependencies": {
+    "ts-loader": "9.5.2",
+    "typescript": "5.7.3",
     "webpack": "5.97.1",
     "webpack-cli": "4.10.0"
   }
