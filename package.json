@@ -3,13 +3,34 @@
   "version": "0.0.1",
   "description": "Banki shop test task",
   "main": "index.js",
+  "engines": {
+    "node": "16"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.prod.js",
+    "dev": "webpack serve --config webpack.dev.js --progress"
   },
   "keywords": [
     "vue2",
     "webpack"
   ],
   "author": "Anton Bezushko",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "6.11.0",
+    "html-webpack-plugin": "4.5.2",
+    "terser-webpack-plugin": "5.3.11",
+    "ts-loader": "9.5.2",
+    "typescript": "5.7.3",
+    "vue-loader": "15.11.1",
+    "vue-template-compiler": "2.7.16",
+    "webpack": "5.97.1",
+    "webpack-cli": "4.10.0",
+    "webpack-dev-server": "4.15.2",
+    "webpack-merge": "6.0.1"
+  },
+  "dependencies": {
+    "vue": "2.7.16"
+  }
 }
+
