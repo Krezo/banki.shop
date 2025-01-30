@@ -21,11 +21,19 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['vue-style-loader', 'css-loader']
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js', '.vue'],
+    extensions: ['.tsx', '.ts', '.js', '.vue', '.css'],
     alias: {
       '@': path.resolve(__dirname, 'src')
     }
