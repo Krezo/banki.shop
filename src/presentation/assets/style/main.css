@@ -2,6 +2,7 @@
 @import './fonts.css';
 @import './container.css';
 @import './utils.css';
+@import './animation.css';
 
 :root {
   --bs-c-primary: #403432;
@@ -15,4 +16,15 @@ body {
   font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #FFF;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
 }

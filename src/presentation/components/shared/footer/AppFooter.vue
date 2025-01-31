@@ -79,12 +79,26 @@ export default {};
   gap: 8px;
 }
 .nav {
-  padding-left: 96px;
   font-size: 14px;
 }
 .menu {
   color: var(--bc-c-color-1);
   display: flex;
   gap: 48px;
+}
+
+@media (min-width: 992px) {
+  .menu {
+    gap: 24px;
+  }
+  .phone-location {
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .nav {
+    padding-left: 96px;
+  }
 }
 </style>

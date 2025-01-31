@@ -7,23 +7,48 @@
         <div
           v-for="picture in pictures"
           :key="picture.id"
-          class="picture-item col-12 col-md-6 col-lg-3"
+          class="picture-item col-12 col-md-6 col-lg-4 col-xl-3"
         >
-          <PictureItem :picture="picture" />
+          <PictureItem :picture="picture" @modal="showPictureModal(picture)" />
         </div>
       </div>
     </div>
+    <AppModal v-model="modalVisible">
+      <PictureItemModal
+        v-show="modalPicture"
+        :picture="modalPicture"
+        @close="modalVisible = false"
+      />
+    </AppModal>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
-import { Picture } from '@/domain/entities/Picture';
-import PictureItem from './PictureItem.vue';
+import { defineComponent, PropType } from "vue";
+import { Picture } from "@/domain/entities/Picture";
+import PictureItem from "./PictureItem.vue";
+import { cartStoreHelper } from "../../../store";
+import PictureItemModal from "./PictureItemModal.vue";
+import AppModal from "../../shared/modal/AppModal.vue";
 
 export default defineComponent({
-  components: { PictureItem },
-  name: 'PictureList',
+  components: { PictureItem, PictureItemModal, AppModal },
+  data: () => ({
+    modalVisible: false,
+    modalPicture: null as Picture | null,
+  }),
+  name: "PictureList",
+  computed: {
+    cartItems() {
+      return cartStoreHelper.state.items;
+    },
+  },
+  methods: {
+    showPictureModal(p: Picture) {
+      this.modalPicture = p;
+      this.modalVisible = true;
+    },
+  },
   props: {
     pictures: {
       type: Array as PropType<Picture[]>,

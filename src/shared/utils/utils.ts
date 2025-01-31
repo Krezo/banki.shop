@@ -7,3 +7,10 @@ export const formatStringNumber = (value: string | number): string => {
 
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
 };
+
+export function fakeFetch<T>(data: T, time: number = 0) {
+  return new Promise<T>((res) => {
+    console.log(time);
+    setTimeout(() => res(data), time ? time : Math.random() * 1000);
+  });
+}

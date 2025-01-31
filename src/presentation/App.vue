@@ -3,7 +3,9 @@
 </template>
 
 <script lang="ts">
-import { RouterView } from 'vue-router';
+import { RouterView } from "vue-router";
+import { cartStoreHelper } from "./store";
+import { CartActionType } from "./store/cartStore";
 
 export default {
   data() {
@@ -11,6 +13,9 @@ export default {
   },
   components: {
     RouterView,
+  },
+  created() {
+    cartStoreHelper.dispatch(CartActionType.FETCH_CART);
   },
 };
 </script>

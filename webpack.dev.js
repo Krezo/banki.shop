@@ -37,7 +37,8 @@ module.exports = merge(common, {
   cache: {
     type: 'filesystem', // Enable filesystem caching
     buildDependencies: {
-      config: [__filename] // Add config to cache dependencies
+      config: [__filename], // Add config to cache dependencies
+      tsConfig: [path.resolve(process.cwd(), 'tsconfig.json')],
     }
   },
   optimization: {

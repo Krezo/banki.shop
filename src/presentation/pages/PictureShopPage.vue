@@ -1,19 +1,19 @@
 <template>
-  <div class="container">
+  <div class="container shop-page-container">
     <AppHeading class="title" :level="2">Картины эпохи Возрождения</AppHeading>
     <PictureList :pictures="filteredPictures" :loading="loadingPicture" />
   </div>
 </template>
 
 <script lang="ts">
-import PictureList from '@/presentation/components/feature/Picture/PictureList.vue';
-import AppHeading from '@/presentation/components/shared/heading/AppHeading.vue';
-import { PictureActionType, PictureGetterType } from '../store/pictureStore';
-import { pictureStoreHelper } from '../store';
+import PictureList from "@/presentation/components/feature/Picture/PictureList.vue";
+import AppHeading from "@/presentation/components/shared/heading/AppHeading.vue";
+import { PictureActionType, PictureGetterType } from "../store/pictureStore";
+import { pictureStoreHelper } from "../store";
 
 export default {
   components: { AppHeading, PictureList },
-  name: 'PictureShopPage',
+  name: "PictureShopPage",
   data: () => ({}),
   computed: {
     filteredPictures() {
@@ -37,7 +37,10 @@ export default {
 <style scoped>
 .title {
   color: #343030;
-  margin-top: 45px;
   margin-bottom: 39px;
+}
+.shop-page-container {
+  padding-top: 45px;
+  padding-bottom: 45px;
 }
 </style>

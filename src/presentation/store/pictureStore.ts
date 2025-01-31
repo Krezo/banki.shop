@@ -1,8 +1,8 @@
-import { Module, Store } from 'vuex';
-import { Picture } from '../../domain/entities/Picture';
-import { RootState } from '../../shared/types/rootState';
-import { PictureService } from '../../application/services/ProductService';
-import { PictureRepository } from '../../domain/repository/PictureRepository';
+import { Module } from 'vuex';
+import { Picture } from '@/domain/entities/Picture';
+import { RootState } from '@/shared/types/rootState';
+import { PictureService } from '@/application/services/PictureService';
+import { PictureRepository } from '@/application/repository/PictureRepository';
 
 export interface PictureState {
   pictures: Picture[];
