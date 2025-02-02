@@ -4,32 +4,29 @@ const path = require('path');
 
 module.exports = merge(common, {
   mode: 'development',
-  devtool: 'eval-cheap-module-source-map',
+  devtool: 'eval-source-map', // Faster than eval-cheap-module-source-map
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
-      publicPath: '/',
-      serveIndex: true,
-      watch: {
-        ignored: /node_modules/,
-        poll: 1000
-      }
+      watch: true
     },
     compress: true,
     port: 8080,
     open: true,
-    hot: 'only',
+    hot: true,
     historyApiFallback: true,
     devMiddleware: {
-      writeToDisk: true,
+      writeToDisk: false // Don't write to disk in dev
     },
     client: {
       overlay: {
         errors: true,
-        warnings: false,
+        warnings: false
       },
-      progress: true,
-    }
+      progress: true
+    },
+    watchFiles: ['src/**/*'],
+    liveReload: true
   },
   output: {
     filename: '[name].bundle.js',
@@ -38,6 +35,25 @@ module.exports = merge(common, {
     publicPath: '/'
   },
   cache: {
-    type: 'filesystem'
+    type: 'filesystem', // Enable filesystem caching
+    buildDependencies: {
+      config: [__filename], // Add config to cache dependencies
+      tsConfig: [path.resolve(process.cwd(), 'tsconfig.json')],
+    }
+  },
+  optimization: {
+    removeAvailableModules: false,
+    removeEmptyChunks: false,
+    splitChunks: false,
+    minimize: false // Disable minimization in dev
+  },
+  watchOptions: {
+    aggregateTimeout: 200,
+    poll: false, // Use native file system events
+    ignored: /node_modules/
+  },
+  stats: {
+    modules: false,
+    children: false
   }
 });
