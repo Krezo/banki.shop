@@ -54,7 +54,6 @@ export default {};
 <style scoped>
 .footer {
   background-color: #eceaea;
-  height: 96px;
   padding: 20px;
   border-bottom: 1px solid #e1e1e1;
   display: flex;
@@ -65,12 +64,15 @@ export default {};
 .footer-container {
   width: 100%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
 }
 .phone-location {
   display: flex;
-  gap: 75px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 .phone,
 .location {
@@ -84,10 +86,25 @@ export default {};
 .menu {
   color: var(--bc-c-color-1);
   display: flex;
-  gap: 48px;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    flex-direction: row;
+  }
+  .footer {
+    height: 96px;
+  }
 }
 
 @media (min-width: 992px) {
+  .footer-container {
+    gap: 0;
+    flex-direction: row;
+    align-items: center;
+  }
   .menu {
     gap: 24px;
   }

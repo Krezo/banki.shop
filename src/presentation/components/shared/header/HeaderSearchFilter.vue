@@ -4,28 +4,11 @@
       <input
         v-model="searchInput"
         class="input"
-        placeholder="Поиск по названию картины"
+        @change="searchPicture"
+        placeholder="Поиск "
       />
     </div>
     <button class="button" @click="searchPicture">Найти</button>
-    <button class="menu-icon">
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-        aria-hidden="true"
-        class="DocSearch-Search-Icon"
-      >
-        <path
-          d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z"
-          stroke="currentColor"
-          fill="none"
-          fill-rule="evenodd"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        ></path>
-      </svg>
-    </button>
   </div>
 </template>
 
@@ -57,16 +40,16 @@ export default defineComponent({
 .header-search-filter {
   display: flex;
   height: 48px;
-  align-items: center;
+  align-items: stretch;
   font-size: 14px;
 }
 .input-container {
-  display: none;
   border: 1px solid #e1e1e1;
-  padding: 14px 60px 16px 13px;
+  padding: 13px 10px 13px 6px;
 }
 .input {
   border: none;
+  max-width: 120px;
   font-size: 14px;
   line-height: 21px;
 }
@@ -74,26 +57,25 @@ export default defineComponent({
   color: #9f9f9f;
 }
 .button {
-  display: none;
   height: 100%;
   color: var(--bc-c-absolute-white);
   background: var(--bs-c-primary);
-  padding: 13px 36px;
+  padding: 6px;
 }
 
-.menu-icon {
-  display: inline-flex;
-}
-@media (min-width: 992px) {
-  .button,
+@media (min-width: 576px) {
+  .input {
+    max-width: none;
+  }
   .input-container {
-    display: block;
+    border: 1px solid #e1e1e1;
+    padding: 14px 60px 16px 13px;
   }
-  .menu-icon {
-    display: none;
-  }
-  .header-search-filter {
-    align-items: stretch;
+  .button {
+    height: 100%;
+    color: var(--bc-c-absolute-white);
+    background: var(--bs-c-primary);
+    padding: 13px 36px;
   }
 }
 </style>

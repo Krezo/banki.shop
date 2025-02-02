@@ -7,7 +7,7 @@
         <div
           v-for="picture in pictures"
           :key="picture.id"
-          class="picture-item col-12 col-md-6 col-lg-4 col-xl-3"
+          class="picture-item col-6 col-md-6 col-lg-4 col-xl-3"
         >
           <PictureItem :picture="picture" @modal="showPictureModal(picture)" />
         </div>
