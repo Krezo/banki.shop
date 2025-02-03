@@ -1,35 +1,27 @@
 <template>
   <div class="header-search-filter">
     <div class="input-container">
-      <input
-        v-model="searchInput"
-        class="input"
-        @change="searchPicture"
-        placeholder="Поиск "
-      />
+      <input v-model="searchInput" class="input" @change="searchPicture" placeholder="Поиск " />
     </div>
     <button class="button" @click="searchPicture">Найти</button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { pictureStoreHelper } from "../../../store";
-import { PictureMutationType } from "../../../store/pictureStore";
+import { defineComponent } from 'vue';
+import { pictureStoreHelper } from '../../../store';
+import { PictureMutationType } from '../../../store/pictureStore';
 
 export default defineComponent({
   data: () => ({
-    searchInput: "",
+    searchInput: '',
   }),
   methods: {
     searchPicture() {
-      pictureStoreHelper.commit(
-        PictureMutationType.SET_FILTER_TITLE,
-        this.searchInput
-      );
+      pictureStoreHelper.commit(PictureMutationType.SET_FILTER_TITLE, this.searchInput);
     },
   },
-  name: "HeaderSearchFilter",
+  name: 'HeaderSearchFilter',
 });
 </script>
 

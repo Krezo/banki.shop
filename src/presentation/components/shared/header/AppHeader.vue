@@ -2,27 +2,16 @@
   <header class="header">
     <div class="container header-container">
       <button class="mobile-menu-btn" @click="toggleMobileMenu">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 50 50"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 50 50">
           <path
             d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z"
           ></path>
         </svg>
       </button>
       <!-- Add overlay -->
-      <div
-        v-if="isMobileMenuVisible"
-        class="mobile-menu-overlay"
-        @click="toggleMobileMenu"
-      ></div>
+      <div v-if="isMobileMenuVisible" class="mobile-menu-overlay" @click="toggleMobileMenu"></div>
 
-      <div
-        :class="['mobile-menu', { 'mobile-menu--active': isMobileMenuVisible }]"
-      >
+      <div :class="['mobile-menu', { 'mobile-menu--active': isMobileMenuVisible }]">
         <nav>
           <ul class="mobile-menu__list">
             <li>Каталог</li>
@@ -51,11 +40,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import HeaderSearchFilter from "./HeaderSearchFilter.vue";
+import { defineComponent } from 'vue';
+import HeaderSearchFilter from './HeaderSearchFilter.vue';
 
 export default defineComponent({
-  name: "AppHeader",
+  name: 'AppHeader',
   components: { HeaderSearchFilter },
   data() {
     return {

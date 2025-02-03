@@ -6,14 +6,16 @@ export class StoreHelper<
   M extends Record<string, any>,
   A extends Record<string, any>,
   G extends Record<string, any>,
-  K extends keyof RootState
+  K extends keyof RootState,
 > {
-  constructor(private store: Store<RootState>, private namespace: K) { }
+  constructor(
+    private store: Store<RootState>,
+    private namespace: K
+  ) {}
 
   public get state() {
     return this.store.state[this.namespace];
   }
-
 
   commit<T extends keyof M>(type: T, payload: Parameters<M[T]>[1]): void {
     this.store.commit(`${this.namespace}/${String(type)}`, payload);

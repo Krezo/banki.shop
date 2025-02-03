@@ -9,7 +9,8 @@
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack serve --config webpack.dev.js --progress",
-    "lint": "eslint **/*.{js,mjs,cjs,ts,vue} src"
+    "lint": "eslint **/*.{js,mjs,cjs,ts,vue} src",
+    "format": "prettier --write \"src/**/*.{ts,vue}\""
   },
   "keywords": [
     "vue2",
@@ -26,6 +27,7 @@
     "file-loader": "^6.2.0",
     "globals": "^15.14.0",
     "html-webpack-plugin": "4.5.2",
+    "prettier": "3.4.2",
     "terser-webpack-plugin": "5.3.11",
     "ts-loader": "9.5.2",
     "typescript": "5.3.2",

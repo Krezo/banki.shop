@@ -9,23 +9,23 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: "AppModal",
+  name: 'AppModal',
   props: {
     title: {
       type: String,
-      default: "Modal Title",
+      default: 'Modal Title',
     },
     value: {
       type: Boolean,
     },
   },
-  emits: ["input"],
+  emits: ['input'],
   methods: {
     close() {
-      this.$emit("input", false);
+      this.$emit('input', false);
     },
   },
 });

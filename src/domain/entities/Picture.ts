@@ -7,5 +7,5 @@ export class Picture {
     public readonly images: string[],
     public readonly sold: boolean,
     public readonly oldPrice?: number
-  ) { }
+  ) {}
 }

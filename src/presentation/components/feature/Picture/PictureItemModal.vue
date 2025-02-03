@@ -34,30 +34,30 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { formatStringNumber } from "@/shared/utils/utils";
-import { Picture } from "@/domain/entities/Picture";
-import Swiper, { Navigation, Pagination } from "swiper";
+import { defineComponent, PropType } from 'vue';
+import { formatStringNumber } from '@/shared/utils/utils';
+import { Picture } from '@/domain/entities/Picture';
+import Swiper, { Navigation, Pagination } from 'swiper';
 
 export default defineComponent({
-  name: "PictureItemModal",
+  name: 'PictureItemModal',
   props: {
     picture: {
       type: Object as PropType<Picture>,
       required: true,
     },
   },
-  emits: ["close"],
+  emits: ['close'],
   data() {
     return {
       swiperOptions: {
         pagination: {
-          el: ".swiper-pagination",
+          el: '.swiper-pagination',
           clickable: true,
         },
         navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
         },
         loop: true,
       },
@@ -65,7 +65,7 @@ export default defineComponent({
   },
   methods: {
     close() {
-      this.$emit("close");
+      this.$emit('close');
     },
     formatStringNumber,
   },
@@ -78,18 +78,18 @@ export default defineComponent({
 
       // If we need pagination
       pagination: {
-        el: ".swiper-pagination",
+        el: '.swiper-pagination',
       },
 
       // Navigation arrows
       navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
 
       // And if we need scrollbar
       scrollbar: {
-        el: ".swiper-scrollbar",
+        el: '.swiper-scrollbar',
       },
     });
   },

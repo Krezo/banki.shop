@@ -6,14 +6,14 @@
 </template>
 
 <script lang="ts">
-import PictureList from "@/presentation/components/feature/Picture/PictureList.vue";
-import AppHeading from "@/presentation/components/shared/heading/AppHeading.vue";
-import { PictureActionType, PictureGetterType } from "../store/pictureStore";
-import { pictureStoreHelper } from "../store";
+import PictureList from '@/presentation/components/feature/Picture/PictureList.vue';
+import AppHeading from '@/presentation/components/shared/heading/AppHeading.vue';
+import { PictureActionType, PictureGetterType } from '../store/pictureStore';
+import { pictureStoreHelper } from '../store';
 
 export default {
   components: { AppHeading, PictureList },
-  name: "PictureShopPage",
+  name: 'PictureShopPage',
   data: () => ({}),
   computed: {
     filteredPictures() {

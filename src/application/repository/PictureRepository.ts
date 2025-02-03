@@ -5,8 +5,6 @@ import { fakeFetch } from '../../shared/utils/utils';
 
 import Image1 from '@/presentation/assets/images/pictures/pic_1.png';
 
-
-
 export class PictureRepository implements IPictureRepository {
   private pictures: Picture[] = PictureFactory.createMany([
     {

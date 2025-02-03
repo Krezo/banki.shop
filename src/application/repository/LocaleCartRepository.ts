@@ -8,13 +8,12 @@ export class LocaleCartRepository implements ICartRepository {
   async save(cart: Cart): Promise<void> {
     const serializedCart = {
       id: cart.id,
-      items: cart.items
+      items: cart.items,
     };
     localStorage.setItem(LocaleCartRepository.CART_KEY, JSON.stringify(serializedCart));
   }
 
   async get(): Promise<Cart> {
-
     if (this._instance) {
       return this._instance;
     }
@@ -28,7 +27,6 @@ export class LocaleCartRepository implements ICartRepository {
 
     const parsedData = JSON.parse(cartData);
     this._instance = new Cart(parsedData.id, parsedData.items);
-
 
     return this._instance;
   }

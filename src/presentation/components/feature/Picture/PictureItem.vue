@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="picture-item"
-    :class="{ 'picture-item--sold': picture.sold }"
-    @click="addToCart"
-  >
+  <div class="picture-item" :class="{ 'picture-item--sold': picture.sold }" @click="addToCart">
     <div class="header show-model-el" @click="$emit('modal')">
       <img class="picture-item-image" :src="picture.images[0]" alt="" />
     </div>
@@ -47,7 +43,7 @@
           <div v-if="loading || loadingCart" class="button-loader-shadow">
             <div class="loader button-loader"></div>
           </div>
-          {{ inCart ? "В корзине" : "Купить" }}
+          {{ inCart ? 'В корзине' : 'Купить' }}
         </button>
       </div>
       <div class="sold-text" v-else>Продана на аукционе</div>
@@ -56,11 +52,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { Picture } from "@/domain/entities/Picture";
-import { formatStringNumber } from "@/shared/utils/utils";
-import { cartStoreHelper } from "../../../store";
-import { CartActionType, CartGetterType } from "../../../store/cartStore";
+import { defineComponent, PropType } from 'vue';
+import { Picture } from '@/domain/entities/Picture';
+import { formatStringNumber } from '@/shared/utils/utils';
+import { cartStoreHelper } from '../../../store';
+import { CartActionType, CartGetterType } from '../../../store/cartStore';
 
 export default defineComponent({
   data: () => ({
@@ -72,13 +68,12 @@ export default defineComponent({
       required: true,
     },
   },
-  emits: ["modal"],
+  emits: ['modal'],
   computed: {
     inCart(): boolean {
       return (
-        cartStoreHelper
-          .getter(CartGetterType.CART_BOUGHT_IDS)
-          .includes(this.picture.id) && !this.loading
+        cartStoreHelper.getter(CartGetterType.CART_BOUGHT_IDS).includes(this.picture.id) &&
+        !this.loading
       );
     },
     loadingCart() {
@@ -93,10 +88,7 @@ export default defineComponent({
       }
       try {
         this.loading = true;
-        await cartStoreHelper.dispatch(
-          CartActionType.ADD_TO_CART,
-          this.picture
-        );
+        await cartStoreHelper.dispatch(CartActionType.ADD_TO_CART, this.picture);
       } catch (error) {
         console.log(error);
       } finally {

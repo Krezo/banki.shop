@@ -24,12 +24,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { Picture } from "@/domain/entities/Picture";
-import PictureItem from "./PictureItem.vue";
-import { cartStoreHelper } from "../../../store";
-import PictureItemModal from "./PictureItemModal.vue";
-import AppModal from "../../shared/modal/AppModal.vue";
+import { defineComponent, PropType } from 'vue';
+import { Picture } from '@/domain/entities/Picture';
+import PictureItem from './PictureItem.vue';
+import { cartStoreHelper } from '../../../store';
+import PictureItemModal from './PictureItemModal.vue';
+import AppModal from '../../shared/modal/AppModal.vue';
 
 export default defineComponent({
   components: { PictureItem, PictureItemModal, AppModal },
@@ -37,7 +37,7 @@ export default defineComponent({
     modalVisible: false,
     modalPicture: null as Picture | null,
   }),
-  name: "PictureList",
+  name: 'PictureList',
   computed: {
     cartItems() {
       return cartStoreHelper.state.items;
