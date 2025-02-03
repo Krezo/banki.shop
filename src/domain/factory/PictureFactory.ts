@@ -31,12 +31,8 @@ export class PictureFactory {
       throw new Error('Parameters must be an array');
     }
 
-    return paramsArray.map((params, index) => {
-      try {
-        return this.create(params);
-      } catch (error) {
-        throw error;
-      }
+    return paramsArray.map((params) => {
+      return this.create(params);
     });
   }
 
