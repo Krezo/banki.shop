@@ -21,9 +21,6 @@ export default defineComponent({
   data: () => ({
     searchInput: "",
   }),
-  watch: {
-    searchInput(searchTitle: string) {},
-  },
   methods: {
     searchPicture() {
       pictureStoreHelper.commit(

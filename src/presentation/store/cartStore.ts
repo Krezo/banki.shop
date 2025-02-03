@@ -101,9 +101,6 @@ export const cartStore: Module<CartState, RootState> & {
       const cart = new Cart();
       cart.addItem(item);
     },
-    [CartMutationType.REMOVE_ITEM](state, itemId: string) {
-      // state.items.delete(itemId);
-    }
   },
 
   actions: {

@@ -3,7 +3,7 @@ import PictureShop from '@/presentation/pages/PictureShopPage.vue';
 
 const shopRoutes: RouteConfig[] = [
   {
-    path: '/shop',
+    path: '/',
     name: 'Shop',
     component: PictureShop,
   },

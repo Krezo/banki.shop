@@ -1,6 +1,5 @@
 import { Cart } from '../../domain/entities/Cart';
 import { ICartRepository } from '../../domain/repository/CartRepository';
-import { CartItem } from '../../domain/entities/CartItem';
 
 export class LocaleCartRepository implements ICartRepository {
   private static readonly CART_KEY = '__cart_localstorage_key';
