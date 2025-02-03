@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "Banki shop test task",
   "main": "index.js",
-  "engines": {
-    "node": "16"
-  },
   "scripts": {
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack serve --config webpack.dev.js --progress",
